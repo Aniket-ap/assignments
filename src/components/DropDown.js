@@ -15,15 +15,20 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import TableChart from "./TableChart";
 
-const DropDown = ({ detail }) => {
+const DropDown = ({ detail, data }) => {
   const [open, setOpen] = React.useState(false);
+  const [currentData, setCurrentData] = useState("cpa");
 
   return (
     <>
       <TableRow>
         <TableCell>{detail.feature}</TableCell>
         <TableCell>{detail.description}</TableCell>
-        <TableCell>
+        <TableCell
+          onChange={() => {
+            Object.keys(data).map((key) => setCurrentData(key));
+          }}
+        >
           <IconButton
             aria-label="expand row"
             size="small"
@@ -40,7 +45,7 @@ const DropDown = ({ detail }) => {
             <Box margin={1}>
               <div className="app">
                 <div className="chart">
-                  <TableChart detail={detail} />
+                  <TableChart detail={detail.data[currentData]} />
                 </div>
               </div>
             </Box>

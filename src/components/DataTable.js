@@ -37,12 +37,12 @@ const DataTable = ({ details }) => {
   return (
     <>
       <h3>Analysis on fundamental Changes</h3>
-      {details.map((detail) => {
+      {details.map((detail, index) => {
         return (
-          <TableContainer component={Paper} key={detail.feature}>
+          <TableContainer component={Paper} key={index}>
             <Table aria-label="collapsible table">
               <TableBody>
-                <DropDown detail={detail} />
+                <DropDown detail={detail} data={detail.data} />
               </TableBody>
             </Table>
           </TableContainer>
