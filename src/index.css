@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  justify-content: center;
+}
+.chart {
+  width: 720px;
+}
+.labelTags {
+  /* float: right; */
+  display: flex;
+  justify-content: flex-end;
+}
